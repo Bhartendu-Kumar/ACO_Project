@@ -30,7 +30,7 @@ addpath(genpath('.'));
 
 %code to load the image to a a variable
 
-initial_image_read = im2double(imread('cameraman_small.jpg'));
+initial_image_read = im2double(imread('test_42.JPEG'));
 % load x_2d ;
 % initial_image_read  = x_2d;
 
