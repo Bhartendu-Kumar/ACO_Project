@@ -7,7 +7,7 @@ function [argument_struct] = building_calling_parameters(fun_obj ,c_constrained_
     argument_struct.to_use_linesearch = 1;        % 1 for linesearch, 2 for backtracking
 
 
-    argument_struct.number_of_iterations = 100;   %100  , 1000
+    argument_struct.number_of_iterations = 5000;   %100  , 1000
     argument_struct.l_regularization_parameter = 0.01;
     argument_struct.tolerance_epsilon =  10^(-5);   %epsilon error in cost function allowed =10^(-5)
 

@@ -137,12 +137,11 @@ blurred_image_two_dim = reshape(b,size(image_as_matrix));    % reshape the blurr
 % blurred_image_two_dim = imnoise(blurred_image_two_dim_b,'gaussian',0,0.001);  % add noise to the blurred image
 
 
-% y = blurred_image_two_dim(:);                               % noisy image (vector);
 
 
 % to change this figurer plotting manner 
-% figure('Position',[500,500,300,300]),imshow(image_as_matrix);title('original');caxis([0,1]);
-% figure('Position',[500,500,300,300]),imshow(blurred_image_two_dim);title('degraded');caxis([0,1]);
+figure('Position',[400,400,200,200]),imshow(image_as_matrix);title('original');caxis([0,1]);
+figure('Position',[400,400,200,200]),imshow(blurred_image_two_dim);title('degraded');caxis([0,1]);
 
 
 
@@ -176,7 +175,7 @@ fprintf('ISTA \n');
 [image_after_ISTA , ISTA_cost_function_per_iter  , ISTA_RMSE_per_iter , ISTA_PSNR_per_iter] = ISTA(x,A,b,x_initial,argument_struct,0);
 
 %rewriting the figure code
-% figure('Position',[500,500,300,300]),imshow(reshape(image_after_ISTA,size(image_as_matrix)));title('ISTA');caxis([0,1]);
+figure('Position',[400,400,200,200]),imshow(reshape(image_after_ISTA,size(image_as_matrix)));title('ISTA');caxis([0,1]);
 
 % imshow(reshape(image_after_ISTA,size(image_as_matrix)));
 % title('ISTA');
@@ -191,7 +190,7 @@ fprintf('FISTA \n');
 [image_after_ISTA, FISTA_cost_function_per_iter  , FISTA_RMSE_per_iter , FISTA_PSNR_per_iter] = FISTA(x,A,b,x_initial,argument_struct,0);
 
 %
-% figure('Position',[500,500,300,300]),imshow(reshape(image_after_ISTA,size(image_as_matrix)));title('FISTA');caxis([0,1]);
+figure('Position',[400,400,200,200]),imshow(reshape(image_after_ISTA,size(image_as_matrix)));title('FISTA');caxis([0,1]);
 % imshow(reshape(image_after_ISTA,size(image_as_matrix)));
 % title('FISTA');
 %
@@ -202,11 +201,11 @@ fprintf('psnr: %.2f\n',PSNR_ratio(image_as_matrix,image_after_ISTA,1));
 
 
 %now plotting the graphs for the cost function vs iteration of both algorithms
-figure('Position',[500,500,300,300]),plot(1:length(FISTA_cost_function_per_iter),FISTA_cost_function_per_iter,'r',1:length(ISTA_cost_function_per_iter),ISTA_cost_function_per_iter,'b');title('Cost Function vs Iteration');legend('FISTA','ISTA');
+figure('Position',[400,400,200,200]),plot(1:length(FISTA_cost_function_per_iter),FISTA_cost_function_per_iter,'r',1:length(ISTA_cost_function_per_iter),ISTA_cost_function_per_iter,'b');title('Cost Function vs Iteration');legend('FISTA','ISTA');
 
 % now plot the graphs for the RMSE vs iteration of both algorithms
-figure('Position',[500,500,300,300]),plot(1:length(FISTA_RMSE_per_iter),FISTA_RMSE_per_iter,'r',1:length(ISTA_RMSE_per_iter),ISTA_RMSE_per_iter,'b');title('RMSE vs Iteration');legend('FISTA','ISTA');
+figure('Position',[400,400,200,200]),plot(1:length(FISTA_RMSE_per_iter),FISTA_RMSE_per_iter,'r',1:length(ISTA_RMSE_per_iter),ISTA_RMSE_per_iter,'b');title('RMSE vs Iteration');legend('FISTA','ISTA');
 
 %now plot the graphs for the PSNR vs iteration of both algorithms
-figure('Position',[500,500,300,300]),plot(1:length(FISTA_PSNR_per_iter),FISTA_PSNR_per_iter,'r',1:length(ISTA_PSNR_per_iter),ISTA_PSNR_per_iter,'b');title('PSNR vs Iteration');legend('FISTA','ISTA');
+figure('Position',[400,400,300,200]),plot(1:length(FISTA_PSNR_per_iter),FISTA_PSNR_per_iter,'r',1:length(ISTA_PSNR_per_iter),ISTA_PSNR_per_iter,'b');title('PSNR vs Iteration');legend('FISTA','ISTA');
 
